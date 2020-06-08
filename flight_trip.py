@@ -54,8 +54,8 @@ class FlightTrip(Aircraft):
             self.passenger_dict[a].append(str(b))
         return str(self.passenger_dict)
 
-    def return_string_list(self):
-        return ''.join(self.create_passenger_dictionary())
+     # def return_string_list(self):
+     #    return ''.join(self.create_passenger_dictionary())
 
 
 
