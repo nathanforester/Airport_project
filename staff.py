@@ -3,8 +3,8 @@ from people import *
 
 class Staff(People):
 
-    def __init__(self, name, password):
-        super().__init__(name=name, tax_number='')
+    def __init__(self, f_name, l_name, password):
+        super().__init__(f_name=f_name, l_name=l_name, tax_number='')
         self.__password = password
 
     def get_password(self):
