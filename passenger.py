@@ -1,16 +1,12 @@
+from people import *
 
-class Passenger:
+
+class Passenger(People):
 
     def __init__(self, name, passport_number):
+        super().__init__(name=name, tax_number=None)
         self.__name = str(name)
         self.__passport_number = passport_number
-
-    def get_name(self):
-        return self.__name
-
-    def create_name(self, new_name):
-        self.__name = new_name
-        return new_name
 
     def get_passport_number(self):
         return self.__passport_number

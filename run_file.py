@@ -1,12 +1,26 @@
 import sys
 from flight_trip import *
 from passenger import *
+from staff import *
 
-user_input = input("Please enter password to begin or press 'x' to quit: ")
+new_staff = Staff(name='', password='')
+user_input = input("Please enter name to begin or press 'x' to quit: ")
+new_staff.create_name(user_input)
+
 while user_input != 'x':
-    if user_input == 'lovelyjubbly':
-        class RunFile:
-            new_flight = FlightTrip(destination='Rome', origin='Geneva', duration='1:00')
+    if user_input == new_staff.get_name():
+        user_input_b = input("enter a new password or press 'x' to quit: ")
+        if user_input_b == 'x':
+            sys.exit('Thank you, have a nice day')
+        new_staff.create_password(user_input)
+        new_staff.get_password()
+        user_input_c = input("Please re-enter your password: ")
+        while user_input_c != user_input_b:
+            user_input_c = input("That is the wrong password, please try again or press 'x' to quit: ")
+            if user_input_c == 'x':
+                sys.exit('Thank you, have a nice day')
+        if user_input_c == user_input_b:
+            new_flight = FlightTrip(aircraft_number='0000', destination='Rome', origin='Geneva', duration='1:00')
             new_passenger = Passenger(name='', passport_number='')
             user_input_a = input("press any key to continue or 'x' to abort: ")
             while user_input_a != 'x':
@@ -21,12 +35,14 @@ while user_input != 'x':
                 new_flight.get_passenger_details()
                 new_flight.create_passenger_dictionary()
                 new_flight.get_passenger_dict()
-                print(new_flight.get_passenger_dict())
-
+                new_flight.return_string_list()
+                print(new_flight.return_string_list())
             if user_input_a == 'x':
                 sys.exit('Thank you, have a nice day')
-    else:
-        user_input = input("That is the wrong password, please try again or press 'x' to quit: ")
+        # else:
+        #     user_input_b = input("That is the wrong password, please try again or press 'x' to quit: ")
+        #     if user_input == user_input_b:
+        #         new_staff.get_password()
         if user_input == 'x':
             sys.exit('Thank you, have a nice day')
 

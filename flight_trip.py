@@ -1,9 +1,11 @@
+from aircraft import *
 
-class FlightTrip:
 
-    def __init__(self, destination, origin, duration, passenger_list=None, passport_number_list=None,
+class FlightTrip(Aircraft):
+
+    def __init__(self, aircraft_number, destination, origin, duration, passenger_list=None, passport_number_list=None,
                  passenger_dict=None):
-
+        super().__init__(self, aircraft_number)
         self.destination = destination
         self.origin = origin
         self.duration = duration
@@ -49,8 +51,13 @@ class FlightTrip:
         values = self.passenger_list
         self.passenger_dict = {key: [] for key in set(keys)}
         for a, b in zip(keys, values):
-            self.passenger_dict[a].append(b)
-        return self.passenger_dict
+            self.passenger_dict[a].append(str(b))
+        return str(self.passenger_dict)
+
+    def return_string_list(self):
+        return ''.join(self.create_passenger_dictionary())
+
+
 
 
 
